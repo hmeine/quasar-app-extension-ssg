@@ -9,7 +9,7 @@ module.exports = function run(api) {
   api.compatibleWith('quasar', '>= 2.6.0');
 
   if (api.hasVite) {
-    api.compatibleWith('@quasar/app-vite', '^1.0.0');
+    api.compatibleWith('@quasar/app-vite', '^2.0.0');
   } else {
     api.compatibleWith('@quasar/app-webpack', '>= 3.7.0');
   }
