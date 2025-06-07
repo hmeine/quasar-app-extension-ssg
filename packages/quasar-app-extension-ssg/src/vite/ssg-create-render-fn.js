@@ -1,9 +1,9 @@
-const { basename, join } = require('path');
-const { renderToString } = require('vue/server-renderer');
-const appPaths = require('@quasar/app-vite/lib/app-paths');
-const createRenderHintTag = require('./create-render-hint-tag');
+import { basename, join } from "path";
+import { renderToString } from "vue/server-renderer";
+import appPaths from "@quasar/app-vite/lib/app-paths";
+import createRenderHintTag from "./create-render-hint-tag.js";
 
-module.exports = function createRenderFn(quasarConf, viteDevServer) {
+export default function createRenderFn(quasarConf, viteDevServer) {
   // enable source map support for stack traces
   // https://nodejs.org/api/process.html#processsetsourcemapsenabledval
   if (quasarConf.ctx.prod) {

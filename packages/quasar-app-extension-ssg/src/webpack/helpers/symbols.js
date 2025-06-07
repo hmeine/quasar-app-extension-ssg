@@ -1,4 +1,4 @@
-const { webpackNames } = require('@quasar/app-webpack/lib/webpack/symbols');
+import { webpackNames } from "@quasar/app-webpack/lib/webpack/symbols.js";
 
 webpackNames.ssg = {
   renderer: 'Renderer',
@@ -6,9 +6,9 @@ webpackNames.ssg = {
   clientSide: webpackNames.ssr.clientSide,
 };
 
-module.exports.webpackNames = webpackNames;
+export { webpackNames };
 
-module.exports.splitWebpackConfig = function splitWebpackConfig(webpackConfigs, mode) {
+export function splitWebpackConfig(webpackConfigs, mode) {
   return Object.keys(webpackNames[mode])
     .filter((name) => webpackConfigs[name] !== void 0)
     .map((name) => ({

@@ -1,7 +1,7 @@
-const { join } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const { hasPackage } = require('../../api');
+import { join } from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import { hasPackage } from "../../api.js";
 const HtmlAddonsPlugin = require('../plugins/html-addons').plugin;
 
 function getHtmlFilename(cfg) {
@@ -16,7 +16,8 @@ function getHtmlFilename(cfg) {
     : join(cfg.ssg.buildDir, 'www', cfg.build.htmlFilename);
 }
 
-module.exports = function injectHtml(chain, cfg) {
+
+export default function injectHtml(chain, cfg) {
   let templateParam;
 
   if (cfg.ctx.mode.pwa) {

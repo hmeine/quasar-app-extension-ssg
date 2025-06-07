@@ -1,7 +1,7 @@
-const { join, dirname } = require('path');
-const extensionRunner = require('@quasar/app-webpack/lib/app-extension/extensions-runner');
-const { log } = require('./helpers/logger');
-const { webpackNames } = require('./helpers/symbols');
+import { join, dirname } from "path";
+import extensionRunner from "@quasar/app-webpack/lib/app-extension/extensions-runner.js";
+import { log } from "./helpers/logger.js";
+import { webpackNames } from "./helpers/symbols.js";
 
 async function getWebpackConfig(chain, cfg, {
   name,
@@ -66,7 +66,8 @@ async function getCSW(cfg) {
   });
 }
 
-module.exports = async function createWebpackConf(cfg) {
+
+export default async function createWebpackConf(cfg) {
   const rendererChain = require('./chains/renderer')(cfg, webpackNames.ssg.renderer);
 
   const serverChain = require('./chains/server')(cfg, webpackNames.ssg.serverSide);

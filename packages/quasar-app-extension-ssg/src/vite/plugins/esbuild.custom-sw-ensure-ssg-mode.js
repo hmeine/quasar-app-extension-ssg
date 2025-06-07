@@ -1,5 +1,5 @@
-const { extname } = require('path');
-const { readFileSync } = require('fs');
+import { extname } from "path";
+import { readFileSync } from "fs";
 
 /**
  * By default Quasar custom-service-worker.js template file use process.env.MODE
@@ -7,7 +7,7 @@ const { readFileSync } = require('fs');
  *
  * Ensure to not fallback to offline.html in dev with SSG mode
  */
-module.exports = function customSWEnsureSsgMode(quasarConf) {
+export default function customSWEnsureSsgMode(quasarConf) {
   return {
     name: 'quasar:ssg:custom-sw-ensure-ssg-mode',
 

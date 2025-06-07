@@ -38,10 +38,9 @@
   ]
 
  */
+import { hasVite } from "./api.js";
 
-const { hasVite } = require('./api');
-
-module.exports = function getPrompts() {
+export default function getPrompts() {
   const prompts = [
     {
       name: 'scripts',

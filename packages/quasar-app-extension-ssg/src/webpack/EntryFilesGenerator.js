@@ -1,12 +1,11 @@
-const { join, resolve, basename } = require('path');
-const { readFileSync } = require('fs');
-const compileTemplate = require('lodash/template');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const Generator = require('@quasar/app-webpack/lib/generator');
-
+import { join, resolve, basename } from "path";
+import { readFileSync } from "fs";
+import compileTemplate from "lodash/template.js";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import Generator from "@quasar/app-webpack/lib/generator.js";
 const quasarFolder = appPaths.resolve.app('.quasar');
 
-module.exports = class EntryFilesGenerator extends Generator {
+class EntryFilesGenerator extends Generator {
   constructor(quasarConfFile) {
     super(quasarConfFile);
 
@@ -45,3 +44,5 @@ module.exports = class EntryFilesGenerator extends Generator {
     ];
   }
 };
+
+export default EntryFilesGenerator;

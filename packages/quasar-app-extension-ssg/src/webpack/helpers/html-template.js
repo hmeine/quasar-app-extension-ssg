@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-const compileTemplate = require('lodash/template');
+import compileTemplate from "lodash/template.js";
 
 function injectSsrRuntimeInterpolation(html) {
   return html
@@ -120,7 +120,7 @@ function injectAssetsIntoHtml(html, assetTags) {
   return html;
 }
 
-module.exports.getIndexHtml = function getIndexHtml(template, cfg) {
+export function getIndexHtml(template, cfg) {
   const compiled = compileTemplate(template);
 
   let html = compiled(cfg.htmlVariables);

@@ -1,20 +1,20 @@
-const { posix } = require('path');
-const {
+import { posix } from "path";
+import {
   green,
   grey,
   bgBlue,
   underline,
   bold,
-} = require('chalk');
-const { getPackageVersion } = require('../../api');
-const ssgVersion = require('../../../package.json').version;
+} from "chalk";
+import { getPackageVersion } from "../../api.js";
+import { version as ssgVersion } from '../../../package.json';
 
 const quasarVersion = getPackageVersion('quasar');
 const cliAppVersion = getPackageVersion('@quasar/app-webpack');
 const quasarExtrasVersion = getPackageVersion('@quasar/extras');
 const webpackVersion = getPackageVersion('webpack');
 
-module.exports.displayBuildBanner = function displayBuildBanner(argv, cmd, details) {
+export function displayBuildBanner(argv, cmd, details) {
   let banner = '';
 
   if (details) {
@@ -48,7 +48,7 @@ module.exports.displayBuildBanner = function displayBuildBanner(argv, cmd, detai
   }
 };
 
-module.exports.displayGenerateBanner = function displayGenerateBanner(ctx, details) {
+export function displayGenerateBanner(ctx, details) {
   let banner = '';
 
   if (details) {
@@ -76,7 +76,7 @@ module.exports.displayGenerateBanner = function displayGenerateBanner(ctx, detai
   console.log(`${banner}\n`);
 };
 
-module.exports.quasarVersion = quasarVersion;
-module.exports.cliAppVersion = cliAppVersion;
-module.exports.ssgVersion = ssgVersion;
-module.exports.quasarExtrasVersion = quasarExtrasVersion;
+export { quasarVersion };
+export { cliAppVersion };
+export { ssgVersion };
+export { quasarExtrasVersion };

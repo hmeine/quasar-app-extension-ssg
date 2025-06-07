@@ -1,4 +1,4 @@
-const parseArgs = require('minimist');
+import parseArgs from "minimist";
 
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
@@ -46,8 +46,8 @@ if (argv.help) {
 
 argv.mode = 'ssg';
 
-const { log, fatal } = require('../helpers/logger');
-const displayBanner = require('../helpers/banner-global');
+import { log, fatal } from "../helpers/logger.js";
+import displayBanner from "../helpers/banner-global.js";
 
 displayBanner(argv, argv.cmd);
 

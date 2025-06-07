@@ -1,7 +1,8 @@
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const PwaManifestPlugin = require('@quasar/app-webpack/lib/webpack/pwa/plugin.pwa-manifest');
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import PwaManifestPlugin from "@quasar/app-webpack/lib/webpack/pwa/plugin.pwa-manifest.js";
+import { log } from "../helpers/logger.js";
+
 const HtmlPwaPlugin = require('../plugins/html-pwa').plugin;
-const { log } = require('../helpers/logger');
 
 function addWorkboxPlugin(chain, cfg) {
   const WorkboxPlugin = require('workbox-webpack-plugin');
@@ -61,7 +62,8 @@ function addWorkboxPlugin(chain, cfg) {
     .use(WorkboxPlugin[pluginMode], [opts]);
 }
 
-module.exports = function chainPWA(chain, cfg) {
+
+export default function chainPWA(chain, cfg) {
   // write manifest.json file
   chain.plugin('pwa-manifest')
     .use(PwaManifestPlugin, [cfg]);

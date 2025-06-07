@@ -1,11 +1,11 @@
-const { join, sep, normalize } = require('path');
-const { existsSync } = require('fs');
-const { NormalModuleReplacementPlugin } = require('webpack');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const createChain = require('@quasar/app-webpack/lib/webpack/create-chain');
-const { hasPackage } = require('../../api');
-const { QuasarSSRServerPlugin } = require('../plugins/server-side');
-const WebpackProgressPlugin = require('../plugins/progress');
+import { join, sep, normalize } from "path";
+import { existsSync } from "fs";
+import { NormalModuleReplacementPlugin } from "webpack";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import createChain from "@quasar/app-webpack/lib/webpack/create-chain.js";
+import { hasPackage } from "../../api.js";
+import { QuasarSSRServerPlugin } from "../plugins/server-side.js";
+import WebpackProgressPlugin from "../plugins/progress.js";
 
 function getModuleDirs() {
   const folders = [];
@@ -25,7 +25,8 @@ function getModuleDirs() {
 
 const additionalModuleDirs = getModuleDirs();
 
-module.exports = function createServerChain(cfg, configName) {
+
+export default function createServerChain(cfg, configName) {
   const chain = createChain(cfg, configName);
 
   require('@quasar/app-webpack/lib/webpack/ssr/server')(chain, cfg);

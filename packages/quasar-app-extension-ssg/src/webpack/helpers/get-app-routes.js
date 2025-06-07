@@ -1,6 +1,6 @@
-const createBundle = require('@quasar/ssr-helpers/lib/create-bundle');
+import createBundle from "@quasar/ssr-helpers/lib/create-bundle.js";
 
-module.exports = async function getAppRoutes(serverManifest) {
+export default async function getAppRoutes(serverManifest) {
   const { evaluateEntry, rewriteErrorTrace } = createBundle({ serverManifest });
 
   try {

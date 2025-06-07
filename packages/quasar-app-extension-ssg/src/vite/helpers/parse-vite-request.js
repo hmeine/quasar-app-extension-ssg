@@ -30,7 +30,7 @@ const isOfExt = ({ extensions, filename, query }) => extensions.some(
  * @param {string} id
  * @returns {{ filename: string; query: { [key: string]: string; }; is: ViteQueryIs }}
  */
-module.exports = function parseViteRequest(id) {
+export default function parseViteRequest(id) {
   const [filename, rawQuery] = id.split('?', 2);
   const query = Object.fromEntries(new URLSearchParams(rawQuery));
 

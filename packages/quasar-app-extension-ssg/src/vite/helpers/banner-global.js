@@ -1,15 +1,15 @@
-const { posix } = require('path');
-const { green, gray, underline } = require('kolorist');
-const { getCompilationTarget } = require('@quasar/app-vite/lib/helpers/banner-global');
-const { getPackageVersion } = require('../../api');
-
+import { posix } from "path";
+import { green, gray, underline } from "kolorist";
+import { getCompilationTarget } from "@quasar/app-vite/lib/helpers/banner-global";
+import { getPackageVersion } from "../../api.js";
 const quasarVersion = getPackageVersion('quasar');
 const cliAppVersion = getPackageVersion('@quasar/app-vite');
 const quasarExtrasVersion = getPackageVersion('@quasar/extras');
 const viteVersion = getPackageVersion('vite');
 const ssgVersion = require('../../../package.json').version;
 
-module.exports = function displayBanner(argv, cmd, details) {
+
+export default function displayBanner(argv, cmd, details) {
   let banner = '';
 
   if (details && details.outputFolder) {
@@ -49,9 +49,9 @@ module.exports = function displayBanner(argv, cmd, details) {
   console.log(`${banner}\n`);
 };
 
-module.exports.quasarVersion = quasarVersion;
-module.exports.cliAppVersion = cliAppVersion;
-module.exports.quasarExtrasVersion = quasarExtrasVersion;
-module.exports.viteVersion = viteVersion;
-module.exports.ssgVersion = ssgVersion;
-module.exports.getCompilationTarget = getCompilationTarget;
+export { quasarVersion };
+export { cliAppVersion };
+export { quasarExtrasVersion };
+export { viteVersion };
+export { ssgVersion };
+export { getCompilationTarget };

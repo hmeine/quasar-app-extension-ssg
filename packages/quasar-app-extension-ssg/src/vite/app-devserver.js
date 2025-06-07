@@ -1,9 +1,9 @@
 /**
  * Forked from Quasar to handle ssg entry files generation
  */
-const AppTool = require('@quasar/app-vite/lib/app-tool');
-const encodeForDiff = require('@quasar/app-vite/lib/helpers/encode-for-diff');
-const createEntryFilesGenerator = require('./entry-files-generator');
+import AppTool from "@quasar/app-vite/lib/app-tool.js";
+import encodeForDiff from "@quasar/app-vite/lib/helpers/encode-for-diff";
+import createEntryFilesGenerator from "./entry-files-generator.js";
 
 function getConfSnapshot(extractFn, quasarConf) {
   return extractFn(quasarConf).map((item) => (item ? encodeForDiff(item) : ''));
@@ -123,4 +123,4 @@ class AppDevserver extends AppTool {
   }
 }
 
-module.exports = AppDevserver;
+export default AppDevserver;

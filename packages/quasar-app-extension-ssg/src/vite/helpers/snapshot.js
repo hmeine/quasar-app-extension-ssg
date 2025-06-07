@@ -1,8 +1,8 @@
-const { relative } = require('path');
-const { readFile } = require('fs/promises');
-const { crc32 } = require('crc');
+import { relative } from "path";
+import { readFile } from "fs/promises";
+import { crc32 } from "crc";
 
-module.exports.compareSnapshots = function compareSnapshots(from, to) {
+export function compareSnapshots(from, to) {
   const allKeys = Array.from(new Set([
     ...Object.keys(from).sort(),
     ...Object.keys(to).sort(),
@@ -23,7 +23,7 @@ module.exports.compareSnapshots = function compareSnapshots(from, to) {
   return changed;
 };
 
-module.exports.makeSnapshot = async function makeSnapshot({ globbyOptions, ignore, rootDir }) {
+export async function makeSnapshot({ globbyOptions, ignore, rootDir }) {
   const { globby } = await import('globby');
   const files = await globby('**', {
     ...globbyOptions,

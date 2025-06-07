@@ -1,8 +1,8 @@
-const { join } = require('path');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const WebpackProgressPlugin = require('../plugins/progress');
+import { join } from "path";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import WebpackProgressPlugin from "../plugins/progress.js";
 
-module.exports = function createCSWChain(cfg, configName) {
+export default function createCSWChain(cfg, configName) {
   const chain = require('@quasar/app-webpack/lib/webpack/pwa/create-custom-sw')(cfg, configName);
 
   chain.name(configName);

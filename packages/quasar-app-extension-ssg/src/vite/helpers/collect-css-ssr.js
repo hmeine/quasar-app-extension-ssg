@@ -1,7 +1,5 @@
-const parseViteRequest = require('./parse-vite-request');
-
-const getHash = require('./get-hash');
-
+import parseViteRequest from "./parse-vite-request.js";
+import getHash from "./get-hash.js";
 const moduleIsStyle = (id) => {
   const { is } = parseViteRequest(id);
 
@@ -48,4 +46,4 @@ const collectCss = function collectCss(entryMod, renderedCompMods) {
   return styles;
 };
 
-module.exports = collectCss;
+export default collectCss;

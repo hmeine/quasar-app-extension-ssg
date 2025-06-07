@@ -1,5 +1,5 @@
-const { join } = require('path');
-const spawn = require('cross-spawn');
+import { join } from "path";
+import spawn from "cross-spawn";
 
 function run(cwd) {
   const runner = spawn.sync(

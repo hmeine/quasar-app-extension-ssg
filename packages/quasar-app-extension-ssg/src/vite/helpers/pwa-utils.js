@@ -1,7 +1,7 @@
-const workboxBuild = require('workbox-build');
-const { progress } = require('./logger');
+import workboxBuild from "workbox-build";
+import { progress } from "./logger.js";
 
-module.exports.buildPwaServiceWorker = async function buildPwaServiceWorker(
+export async function buildPwaServiceWorker(
   workboxMode,
   workboxConfig,
 ) {

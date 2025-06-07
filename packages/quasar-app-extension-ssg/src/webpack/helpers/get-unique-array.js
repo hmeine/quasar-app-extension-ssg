@@ -1,3 +1,3 @@
-module.exports = function getUniqueArray(original) {
+export default function getUniqueArray(original) {
   return Array.from(new Set(original));
 };

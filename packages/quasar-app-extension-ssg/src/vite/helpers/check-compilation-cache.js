@@ -1,14 +1,14 @@
-const { resolve, posix } = require('path');
-const { existsSync } = require('fs');
-const { writeFile, readFile } = require('fs/promises');
-const appPaths = require('@quasar/app-vite/lib/app-paths');
-const { info } = require('./logger');
-const { makeSnapshot, compareSnapshots } = require('./snapshot');
-const {
+import { resolve, posix } from "path";
+import { existsSync } from "fs";
+import { writeFile, readFile } from "fs/promises";
+import appPaths from "@quasar/app-vite/lib/app-paths";
+import { info } from "./logger.js";
+import { makeSnapshot, compareSnapshots } from "./snapshot.js";
+import {
   quasarVersion, cliAppVersion, quasarExtrasVersion, ssgVersion,
-} = require('./banner-global');
+} from "./banner-global.js";
 
-module.exports = async function checkCompilationCache(argv, quasarConf) {
+export default async function checkCompilationCache(argv, quasarConf) {
   let needCompilation = true;
 
   if (quasarConf.ssg.cache === false) {

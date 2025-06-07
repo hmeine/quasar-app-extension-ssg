@@ -1,12 +1,11 @@
-const { extname } = require('path');
+import { extname } from "path";
 
-module.exports.flatRoutes = function flatRoutes(routes) {
+export function flatRoutes(routes) {
   return routes
     .filter((r) => ![':', '*'].some((c) => r.path.includes(c) || r.path === ''))
     .map((r) => r.path);
 };
-
-module.exports.isRouteValid = function isRouteValid(route) {
+export function isRouteValid(route) {
   if (route.startsWith('/') && !route.startsWith('//') && !extname(route)) {
     return true;
   }
@@ -14,7 +13,7 @@ module.exports.isRouteValid = function isRouteValid(route) {
   return false;
 };
 
-module.exports.promisifyRoutes = function promisifyRoutes(fn, ...args) {
+export function promisifyRoutes(fn, ...args) {
   // If routes is an array
   if (Array.isArray(fn)) {
     return Promise.resolve(fn);

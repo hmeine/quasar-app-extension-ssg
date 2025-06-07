@@ -1,4 +1,4 @@
-const parseArgs = require('minimist');
+import parseArgs from "minimist";
 
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
@@ -37,9 +37,9 @@ if (argv.help) {
   process.exit(0);
 }
 
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const { log, fatal } = require('../helpers/logger');
-const { splitWebpackConfig } = require('../helpers/symbols');
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import { log, fatal } from "../helpers/logger.js";
+import { splitWebpackConfig } from "../helpers/symbols.js";
 
 const depth = parseInt(argv.depth, 10) || Infinity;
 

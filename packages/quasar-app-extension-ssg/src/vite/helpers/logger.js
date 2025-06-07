@@ -1,16 +1,15 @@
-const {
+import {
   cyan, yellow, bgYellow, black,
-} = require('kolorist');
-const logger = require('@quasar/app-vite/lib/helpers/logger');
+} from "kolorist";
+import logger from "@quasar/app-vite/lib/helpers/logger";
 
-module.exports.dot = logger.dot;
-module.exports.clearConsole = logger.clearConsole;
-module.exports.log = logger.log;
-module.exports.fatal = logger.fatal;
-module.exports.info = logger.info;
-module.exports.warning = logger.warning;
-module.exports.progress = logger.progress;
-
+export { logger.dot };
+export { logger.clearConsole };
+export { logger.log };
+export { logger.fatal };
+export { logger.info };
+export { logger.warning };
+export { logger.progress };
 /**
  * Pills
  */
@@ -24,7 +23,7 @@ const warningPill = (msg) => bgYellow(black(` ${msg} `));
 const banner = `App ${logger.dot}`;
 const yellowBanner = yellow(banner);
 
-module.exports.beastcssLog = function beastcssLog(messages, level) {
+export function beastcssLog(messages, level) {
   if (!Array.isArray(messages)) {
     return;
   }
@@ -38,7 +37,7 @@ module.exports.beastcssLog = function beastcssLog(messages, level) {
   });
 };
 
-module.exports.warn = function warn(msg, pill) {
+export function warn(msg, pill) {
   if (msg !== void 0) {
     const pillBanner = pill !== void 0
       ? `${warningPill(pill)} `

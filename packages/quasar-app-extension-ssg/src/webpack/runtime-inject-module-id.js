@@ -13,7 +13,7 @@
  * @param { Component } component Component object
  * @param { string }    id the module id
  */
-module.exports = function injectModuleId(component, id) {
+export default function injectModuleId(component, id) {
   const targetComponent = component.__vccOpts || component;
 
   const mixin = {

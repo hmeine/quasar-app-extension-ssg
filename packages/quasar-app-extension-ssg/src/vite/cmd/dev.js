@@ -2,7 +2,7 @@ if (process.env.NODE_ENV === void 0) {
   process.env.NODE_ENV = 'development';
 }
 
-const parseArgs = require('minimist');
+import parseArgs from "minimist";
 
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
@@ -34,7 +34,7 @@ if (argv.help) {
   process.exit(0);
 }
 
-const { log, fatal } = require('../helpers/logger');
+import { log, fatal } from "../helpers/logger.js";
 
 async function startVueDevtools(devtoolsPort) {
   const { spawn } = require('@quasar/app-vite/lib/helpers/spawn');

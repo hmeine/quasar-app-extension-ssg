@@ -1,23 +1,22 @@
-const { join } = require('path');
-const { green, grey } = require('chalk');
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const express = require('express');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const openBrowser = require('@quasar/app-webpack/lib/helpers/open-browser');
-const { getHooks } = require('html-webpack-plugin');
-const { getClientManifest } = require('./plugins/client-side');
-const { getServerManifest } = require('./plugins/server-side');
-const { doneExternalWork } = require('./plugins/progress');
-const { webpackNames } = require('./helpers/symbols');
+import { join } from "path";
+import { green, grey } from "chalk";
+import webpack from "webpack";
+import WebpackDevServer from "webpack-dev-server";
+import express from "express";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import openBrowser from "@quasar/app-webpack/lib/helpers/open-browser.js";
+import { getHooks } from "html-webpack-plugin";
+import { getClientManifest } from "./plugins/client-side.js";
+import { getServerManifest } from "./plugins/server-side.js";
+import { doneExternalWork } from "./plugins/progress.js";
+import { webpackNames } from "./helpers/symbols.js";
+import PagesGenerator from "./PagesGenerator.js";
+import ssgMiddleware from "./ssg-middleware.js";
+import { log, warning } from "./helpers/logger.js";
 
 const banner = ' [Quasar Dev Webserver]';
 const createRendererFile = appPaths.resolve.app('.quasar/ssg/create-renderer.js');
 const renderTemplateFile = appPaths.resolve.app('.quasar/ssg/render-template.js');
-const PagesGenerator = require('./PagesGenerator');
-const ssgMiddleware = require('./ssg-middleware');
-const { log, warning } = require('./helpers/logger');
-
 let renderSSRError;
 const renderError = ({ err, req, res }) => {
   console.log();
@@ -33,7 +32,7 @@ const pluginName = 'ssg-dev-plugin';
 
 let openedBrowser = false;
 
-module.exports = class DevServer {
+class DevServer {
   constructor(quasarConfFile) {
     this.quasarConfFile = quasarConfFile;
     this.setInitialState();
@@ -327,3 +326,5 @@ module.exports = class DevServer {
     }
   }
 };
+
+export default DevServer;

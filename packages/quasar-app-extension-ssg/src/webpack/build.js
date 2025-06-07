@@ -1,14 +1,14 @@
-const { promisify } = require('util');
-const webpack = require('webpack');
-const extensionRunner = require('@quasar/app-webpack/lib/app-extension/extensions-runner');
-const artifacts = require('@quasar/app-webpack/lib/artifacts');
-const printWebpackStats = require('@quasar/app-webpack/lib/helpers/print-webpack-stats');
-const { printWebpackErrors } = require('@quasar/app-webpack/lib/helpers/print-webpack-issue');
-const EntryFilesGenerator = require('./EntryFilesGenerator');
-const { displayBuildBanner } = require('./helpers/banner');
-const { log, fatal } = require('./helpers/logger');
-const regenerateTypesFeatureFlags = require('./helpers/types-feature-flags');
-const { splitWebpackConfig } = require('./helpers/symbols');
+import { promisify } from "util";
+import webpack from "webpack";
+import extensionRunner from "@quasar/app-webpack/lib/app-extension/extensions-runner.js";
+import artifacts from "@quasar/app-webpack/lib/artifacts.js";
+import printWebpackStats from "@quasar/app-webpack/lib/helpers/print-webpack-stats.js";
+import { printWebpackErrors } from "@quasar/app-webpack/lib/helpers/print-webpack-issue/index.js";
+import EntryFilesGenerator from "./EntryFilesGenerator.js";
+import { displayBuildBanner } from "./helpers/banner.js";
+import { log, fatal } from "./helpers/logger.js";
+import regenerateTypesFeatureFlags from "./helpers/types-feature-flags.js";
+import { splitWebpackConfig } from "./helpers/symbols.js";
 
 function parseWebpackConfig(cfg, mode) {
   const data = splitWebpackConfig(cfg, mode);
@@ -20,7 +20,8 @@ function parseWebpackConfig(cfg, mode) {
   };
 }
 
-module.exports = async function build(quasarConfFile) {
+
+export default async function build(quasarConfFile) {
   await quasarConfFile.addWebpackConf();
 
   const generator = new EntryFilesGenerator(quasarConfFile);

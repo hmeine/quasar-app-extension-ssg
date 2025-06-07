@@ -1,15 +1,16 @@
-const { dirname, join, resolve } = require('path');
-const { existsSync } = require('fs');
-const { copySync } = require('fs-extra');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const getMode = require('@quasar/app-webpack/lib/mode/index');
-const { log } = require('./logger');
+import { dirname, join, resolve } from "path";
+import { existsSync } from "fs";
+import { copySync } from "fs-extra";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import getMode from "@quasar/app-webpack/lib/mode/index.js";
+import { log } from "./logger.js";
 
 function getStoreFlagPath(storeIndexPath) {
   return join(dirname(storeIndexPath), 'store-flag.d.ts');
 }
 
-module.exports = function regenerateTypesFeatureFlags(quasarConf) {
+
+export default function regenerateTypesFeatureFlags(quasarConf) {
   // Flags must be available even in pure JS codebases,
   //    because boot and configure wrappers functions files will
   //    provide autocomplete based on them also to JS users

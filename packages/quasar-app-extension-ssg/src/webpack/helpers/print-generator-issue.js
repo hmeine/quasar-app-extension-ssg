@@ -1,4 +1,4 @@
-const { getError, getWarning } = require('./logger');
+import { getError, getWarning } from "./logger.js";
 
 function display(errors, severity, titleFn) {
   const summary = `${errors.length} ${severity}${errors.length > 1 ? 's' : ''}`;
@@ -16,10 +16,10 @@ function display(errors, severity, titleFn) {
   return summary;
 }
 
-module.exports.printGeneratorErrors = function printGeneratorErrors(errors) {
+export function printGeneratorErrors(errors) {
   return display(errors, 'error', (title) => getError(title));
 };
 
-module.exports.printGeneratorWarnings = function printGeneratorWarnings(warnings) {
+export function printGeneratorWarnings(warnings) {
   return display(warnings, 'warning', (title) => getWarning(title));
 };

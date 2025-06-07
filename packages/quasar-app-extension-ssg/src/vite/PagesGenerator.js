@@ -1,23 +1,23 @@
-const { join, dirname, relative } = require('path');
-const { ErrorWithCause } = require('pony-cause');
-const { underline, green } = require('kolorist');
-const {
+import { join, dirname, relative } from "path";
+import { ErrorWithCause } from "pony-cause";
+import { underline, green } from "kolorist";
+import {
   info,
   warn,
   fatal,
   progress,
   beastcssLog,
   warning,
-} = require('./helpers/logger');
-const {
+} from "./helpers/logger.js";
+import {
   promisifyRoutes,
   isRouteValid,
   flatRoutes,
-} = require('./helpers/routes');
-const {
+} from "./helpers/routes.js";
+import {
   withTrailingSlash,
   withoutTrailingSlash,
-} = require('./helpers/normalize-slash');
+} from "./helpers/normalize-slash.js";
 
 class PagesGenerator {
   #opts;
@@ -368,4 +368,4 @@ class PagesGenerator {
   }
 }
 
-module.exports = PagesGenerator;
+export default PagesGenerator;

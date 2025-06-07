@@ -1,5 +1,6 @@
 {
   "name": "test-vite",
+  "type": "module",
   "private": true,
   "version": "0.0.1",
   "productName": "Quasar app extension ssg test vite",

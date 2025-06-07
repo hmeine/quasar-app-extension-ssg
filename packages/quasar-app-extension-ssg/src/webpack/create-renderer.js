@@ -2,7 +2,7 @@
  * Forked from vue-bundle-renderer v0.2.10 NPM package
  */
 
-const { extname } = require('path');
+import { extname } from "path";
 
 const jsRE = /\.js(\?[^.]+)?$/;
 const jsModuleRE = /\.mjs(\?[^.]+)?$/;
@@ -257,7 +257,8 @@ function renderScripts(renderContext, usedAsyncFiles, lazilyHydratedComponents, 
   return '';
 }
 
-module.exports = function createRenderer(opts) {
+
+export default function createRenderer(opts) {
   if (!opts.serverManifest) {
     throw new Error('Missing server bundle');
   }

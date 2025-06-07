@@ -1,8 +1,8 @@
-const { engine, ssgDeps } = require('./api');
-
+import { engine, ssgDeps } from "./api.js";
 /** @type { import('<%= engine %>/lib/app-paths')} */
 const appPaths = require(`${engine}/lib/app-paths`);
 const appDevDependencies = Object.keys(require(appPaths.resolve.app('package.json')).devDependencies);
+
 
 /**
  * Quasar App Extension uninstall script
@@ -10,7 +10,7 @@ const appDevDependencies = Object.keys(require(appPaths.resolve.app('package.jso
  * Docs: https://quasar.dev/app-extensions/development-guide/uninstall-api
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/UninstallAPI.js
  */
-module.exports = async function uninstall(api) {
+export default async function uninstall(api) {
   api.removePath('src/ssg-flag.d.ts');
 
   const depsToUninstall = Object.values(ssgDeps)

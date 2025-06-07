@@ -1,8 +1,8 @@
-const { resolve, join, parse } = require('path');
-const { existsSync } = require('fs');
-const { copySync } = require('fs-extra');
-const appPaths = require('@quasar/app-vite/lib/app-paths');
-const { log } = require('./logger');
+import { resolve, join, parse } from "path";
+import { existsSync } from "fs";
+import { copySync } from "fs-extra";
+import appPaths from "@quasar/app-vite/lib/app-paths";
+import { log } from "./logger.js";
 
 function getStoreFlagPath(storeIndexPath) {
   return join(parse(storeIndexPath).dir, 'store-flag.d.ts');
@@ -18,7 +18,8 @@ function isInstalled(mode) {
   return quasarMode.isInstalled();
 }
 
-module.exports = function regenerateTypesFeatureFlags(quasarConf) {
+
+export default function regenerateTypesFeatureFlags(quasarConf) {
   // Flags must be available even in pure JS codebases,
   //    because boot and configure wrappers functions files will
   //    provide autocomplete based on them also to JS users

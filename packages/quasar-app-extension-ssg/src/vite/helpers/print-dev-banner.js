@@ -1,12 +1,11 @@
-const { green, dim } = require('kolorist');
-const appPaths = require('@quasar/app-vite/lib/app-paths');
-const {
+import { green, dim } from "kolorist";
+import appPaths from "@quasar/app-vite/lib/app-paths";
+import {
   quasarVersion,
   cliAppVersion,
   ssgVersion,
   getCompilationTarget,
-} = require('./banner-global');
-
+} from "./banner-global.js";
 const greenBanner = green('»');
 const cache = {};
 
@@ -42,7 +41,7 @@ function getBanner(quasarConf) {
   return banner.join('\n');
 }
 
-module.exports = (quasarConf) => {
+export default (quasarConf) => {
   console.log();
   console.log(getBanner(quasarConf));
   console.log();

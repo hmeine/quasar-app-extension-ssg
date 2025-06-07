@@ -1,7 +1,7 @@
-const { green, grey } = require('chalk');
-const isRouteValid = require('./helpers/is-route-valid');
+import { green, grey } from "chalk";
+import isRouteValid from "./helpers/is-route-valid.js";
 
-module.exports = ({
+export default ({
   app, banner, resolve, generatePage, serve,
 }) => {
   app.get(resolve.urlPath('*'), (req, res, next) => {

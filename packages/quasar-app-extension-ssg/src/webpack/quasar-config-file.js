@@ -1,10 +1,10 @@
-const { join, isAbsolute } = require('path');
-const { merge } = require('webpack-merge');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const QuasarConfFile = require('@quasar/app-webpack/lib/quasar-conf-file');
-const extensionJson = require('@quasar/app-webpack/lib/app-extension/extension-json');
-const getUniqueArray = require('./helpers/get-unique-array');
-const { hasPackage, ssgDeps } = require('../api');
+import { join, isAbsolute } from "path";
+import { merge } from "webpack-merge";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import QuasarConfFile from "@quasar/app-webpack/lib/quasar-conf-file.js";
+import extensionJson from "@quasar/app-webpack/lib/app-extension/extension-json.js";
+import getUniqueArray from "./helpers/get-unique-array.js";
+import { hasPackage, ssgDeps } from "../api.js";
 
 function encode(obj) {
   return JSON.stringify(obj, (_, value) => (typeof value === 'function'
@@ -133,7 +133,7 @@ function extendQuasarConf(conf) {
   }
 }
 
-module.exports = class ExtendedQuasarConfFile extends QuasarConfFile {
+export default class ExtendedQuasarConfFile extends QuasarConfFile {
   constructor(ctx, opts = {}) {
     super(ctx, opts);
   }

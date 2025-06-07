@@ -1,32 +1,29 @@
-const { resolve } = require('path');
-const { readFileSync } = require('fs');
-const express = require('express');
-const chokidar = require('chokidar');
-const debounce = require('lodash/debounce');
-const { createServer } = require('vite');
-const { green } = require('kolorist');
-const appPaths = require('@quasar/app-vite/lib/app-paths');
-const openBrowser = require('@quasar/app-vite/lib/helpers/open-browser');
-const {
+import { resolve } from "path";
+import { readFileSync } from "fs";
+import express from "express";
+import chokidar from "chokidar";
+import debounce from "lodash/debounce.js";
+import { createServer } from "vite";
+import { green } from "kolorist";
+import appPaths from "@quasar/app-vite/lib/app-paths";
+import openBrowser from "@quasar/app-vite/lib/helpers/open-browser";
+import {
   entryPointMarkup, getDevSsrTemplateFn, attachMarkup, transformHtml,
-} = require('@quasar/app-vite/lib/helpers/html-template');
-const { injectPwaManifest } = require(
-  '@quasar/app-vite/lib/modes/pwa/utils',
-);
-const {
+} from "@quasar/app-vite/lib/helpers/html-template";
+import { injectPwaManifest } from "@quasar/app-vite/lib/modes/pwa/utils.js";
+import {
   log,
   warn,
   info,
   dot,
   progress,
-} = require('./helpers/logger');
-const collectCss = require('./helpers/collect-css-ssr');
-const config = require('./ssg-config');
-const AppDevserver = require('./app-devserver');
-const PagesGenerator = require('./PagesGenerator');
-const printDevBanner = require('./helpers/print-dev-banner');
-const ssgCreateRenderFn = require('./ssg-create-render-fn');
-
+} from "./helpers/logger.js";
+import collectCss from "./helpers/collect-css-ssr.js";
+import config from "./ssg-config.js";
+import AppDevserver from "./app-devserver.js";
+import PagesGenerator from "./PagesGenerator.js";
+import printDevBanner from "./helpers/print-dev-banner.js";
+import ssgCreateRenderFn from "./ssg-create-render-fn.js";
 const templatePath = appPaths.resolve.app('index.html');
 const serverEntryFile = appPaths.resolve.app('.quasar/server-entry.js');
 const doubleSlashRE = /\/\//g;
@@ -429,4 +426,4 @@ class SsgDevServer extends AppDevserver {
   }
 }
 
-module.exports = SsgDevServer;
+export default SsgDevServer;

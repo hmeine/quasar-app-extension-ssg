@@ -1,19 +1,18 @@
-const { ProgressPlugin } = require('webpack');
-const throttle = require('lodash/throttle');
-const chalk = require('chalk');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const isMinimalTerminal = require('@quasar/app-webpack/lib/helpers/is-minimal-terminal');
-const { printWebpackWarnings, printWebpackErrors } = require('@quasar/app-webpack/lib/helpers/print-webpack-issue');
-const progressLog = require('@quasar/app-webpack/lib/helpers/progress-log');
-const { quasarVersion, cliAppVersion, ssgVersion } = require('../helpers/banner');
-const {
+import { ProgressPlugin } from "webpack";
+import throttle from "lodash/throttle.js";
+import chalk from "chalk";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import isMinimalTerminal from "@quasar/app-webpack/lib/helpers/is-minimal-terminal.js";
+import { printWebpackWarnings, printWebpackErrors } from "@quasar/app-webpack/lib/helpers/print-webpack-issue/index.js";
+import progressLog from "@quasar/app-webpack/lib/helpers/progress-log.js";
+import { quasarVersion, cliAppVersion, ssgVersion } from "../helpers/banner.js";
+import {
   success,
   info,
   error,
   warning,
   clearConsole,
-} = require('../helpers/logger');
-
+} from "../helpers/logger.js";
 let maxLengthName = 0;
 let isDev = false;
 let ipList;
@@ -178,7 +177,7 @@ function printStatus() {
   }
 }
 
-module.exports = class WebpackProgressPlugin extends ProgressPlugin {
+export default class WebpackProgressPlugin extends ProgressPlugin {
   constructor({ name, cfg, hasExternalWork }) {
     const useBars = isMinimalTerminal !== true && cfg.build.showProgress === true;
 
@@ -307,7 +306,7 @@ module.exports = class WebpackProgressPlugin extends ProgressPlugin {
   }
 };
 
-module.exports.doneExternalWork = function doneExternalWork(webpackName) {
+export function doneExternalWork(webpackName) {
   const state = compilations.find((entry) => entry.name === webpackName);
   state.externalWork = false;
   printStatus();

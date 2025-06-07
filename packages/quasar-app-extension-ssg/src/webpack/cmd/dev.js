@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === void 0) {
   process.env.NODE_ENV = 'development';
 }
 
-const parseArgs = require('minimist');
+import parseArgs from "minimist";
 
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
@@ -38,9 +38,9 @@ if (argv.help) {
   process.exit(0);
 }
 
-const ensureVueDeps = require('@quasar/app-webpack/lib/helpers/ensure-vue-deps');
-const { displayBuildBanner } = require('../helpers/banner');
-const { log, fatal } = require('../helpers/logger');
+import ensureVueDeps from "@quasar/app-webpack/lib/helpers/ensure-vue-deps.js";
+import { displayBuildBanner } from "../helpers/banner.js";
+import { log, fatal } from "../helpers/logger.js";
 
 ensureVueDeps();
 displayBuildBanner(argv, 'dev');

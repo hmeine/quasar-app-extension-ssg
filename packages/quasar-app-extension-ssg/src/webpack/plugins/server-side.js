@@ -2,7 +2,7 @@
  * Forked from vue-server-renderer/server-plugin.js v2.6.14 NPM package
  */
 
-const { sources } = require('webpack');
+import { sources } from "webpack";
 
 const jsRE = /\.js(\?[^.]+)?$/;
 const jsMapRE = /\.js\.map$/;
@@ -18,7 +18,7 @@ function error(msg) {
   console.error(msg ? ` [error] ${banner} ⚠️  ${msg}` : '');
 }
 
-function getServerManifest(compilation) {
+export function getServerManifest(compilation) {
   const stats = compilation.getStats().toJson();
   const entryName = Object.keys(stats.entrypoints)[0];
   const entryInfo = stats.entrypoints[entryName];
@@ -67,9 +67,7 @@ function getServerManifest(compilation) {
   return serverManifest;
 }
 
-module.exports.getServerManifest = getServerManifest;
-
-module.exports.QuasarSSRServerPlugin = class QuasarSSRServerPlugin {
+export class QuasarSSRServerPlugin {
   constructor(cfg = {}) {
     this.cfg = cfg;
   }

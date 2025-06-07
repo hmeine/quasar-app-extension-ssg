@@ -1,5 +1,4 @@
-const { extname } = require('path');
-
+import { extname } from "path";
 const jsRE = /\.js$/;
 const cssRE = /\.css$/;
 const woffRE = /\.woff$/;
@@ -37,7 +36,8 @@ function normalizeFile(file) {
   return { fileWithoutQuery, type: getFileType(extension), extension };
 }
 
-module.exports = function createRenderHintTag(shouldPreload, shouldPrefetch) {
+
+export default function createRenderHintTag(shouldPreload, shouldPrefetch) {
   return function renderHintsTag(file, isLazilyHydrated) {
     if (cssRE.test(file) === true) {
       // always preload css to avoid FOUC

@@ -1,9 +1,9 @@
-const { readFileSync } = require('fs');
-const { sources, Compilation } = require('webpack');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const { getIndexHtml } = require('../helpers/html-template');
+import { readFileSync } from "fs";
+import { sources, Compilation } from "webpack";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import { getIndexHtml } from "../helpers/html-template.js";
 
-module.exports = class RenderTemplatePlugin {
+export default class RenderTemplatePlugin {
   constructor(cfg = {}) {
     this.cfg = cfg;
   }

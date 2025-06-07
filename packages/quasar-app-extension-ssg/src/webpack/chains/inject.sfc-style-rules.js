@@ -1,8 +1,7 @@
-const { join, win32 } = require('path');
-const { merge } = require('webpack-merge');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const cssVariables = require('@quasar/app-webpack/lib/helpers/css-variables');
-
+import { join, win32 } from "path";
+import { merge } from "webpack-merge";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import cssVariables from "@quasar/app-webpack/lib/helpers/css-variables.js";
 const postcssConfigFilename = appPaths.postcssConfigFilename || appPaths.resolve.app('.postcssrc.js');
 
 const quasarCssPaths = [
@@ -228,7 +227,8 @@ function injectRule(
   }
 }
 
-module.exports = function injectSFCStyleRules(chain, pref) {
+
+export default function injectSFCStyleRules(chain, pref) {
   injectRule(
     chain,
     pref,

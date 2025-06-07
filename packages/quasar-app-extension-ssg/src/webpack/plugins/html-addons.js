@@ -1,4 +1,4 @@
-const { getHooks } = require('html-webpack-plugin');
+import { getHooks } from "html-webpack-plugin";
 
 function makeTag(tagName, attributes, closeTag = false) {
   return {
@@ -23,9 +23,7 @@ function fillBaseTag(html, base) {
   );
 }
 
-module.exports.fillBaseTag = fillBaseTag;
-
-module.exports.plugin = class HtmlAddonsPlugin {
+class HtmlAddonsPlugin {
   constructor(cfg = {}) {
     this.cfg = cfg;
   }
@@ -52,3 +50,5 @@ module.exports.plugin = class HtmlAddonsPlugin {
     });
   }
 };
+
+export { fillBaseTag, HtmlAddonsPlugin as plugin };

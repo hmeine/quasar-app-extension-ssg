@@ -2,7 +2,7 @@ if (process.env.NODE_ENV === void 0) {
   process.env.NODE_ENV = 'production';
 }
 
-const parseArgs = require('minimist');
+import parseArgs from "minimist";
 
 const argv = parseArgs(process.argv.slice(2), {
   alias: {
@@ -32,10 +32,10 @@ if (argv.help) {
 
 argv.mode = 'ssg';
 
-const { log, fatal } = require('../helpers/logger');
-const displayBanner = require('../helpers/banner-global');
-const checkCompilationCache = require('../helpers/check-compilation-cache');
-const getQuasarCtx = require('../helpers/get-quasar-ctx');
+import { log, fatal } from "../helpers/logger.js";
+import displayBanner from "../helpers/banner-global.js";
+import checkCompilationCache from "../helpers/check-compilation-cache.js";
+import getQuasarCtx from "../helpers/get-quasar-ctx.js";
 
 async function run() {
   displayBanner(argv, 'generate');

@@ -1,4 +1,4 @@
-const { getHooks, createHtmlTagObject } = require('html-webpack-plugin');
+import { getHooks, createHtmlTagObject } from "html-webpack-plugin";
 
 function fillPwaTags(data, {
   pwa: {
@@ -82,9 +82,7 @@ function fillPwaTags(data, {
   }
 }
 
-module.exports.fillPwaTags = fillPwaTags;
-
-module.exports.plugin = class HtmlPwaPlugin {
+class HtmlPwaPlugin {
   constructor(cfg) {
     this.cfg = cfg || {};
   }
@@ -101,3 +99,5 @@ module.exports.plugin = class HtmlPwaPlugin {
     });
   }
 };
+
+export { fillPwaTags, HtmlPwaPlugin as plugin };

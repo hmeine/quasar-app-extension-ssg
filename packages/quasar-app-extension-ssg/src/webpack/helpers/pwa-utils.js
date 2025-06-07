@@ -1,12 +1,12 @@
-const { join } = require('path');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const {
+import { join } from "path";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import {
   info,
   error,
   fatal,
   success,
   warn,
-} = require('./logger');
+} from "./logger.js";
 
 const getOptions = (quasarConf, mode) => {
   const defaultOptions = {
@@ -88,7 +88,7 @@ function displaySuccess(mode, size, count, diffTime) {
   success(`${prefix}, which will precache ${count} files, totaling ${(size / 1024).toFixed(2)} kB • ${diffTime}ms`, 'DONE');
 }
 
-module.exports.buildPwaServiceWorker = async function buildPwaServiceWorker(quasarConf) {
+export async function buildPwaServiceWorker(quasarConf) {
   const mode = quasarConf.pwa.workboxPluginMode;
   const pill = `[${mode === 'GenerateSW'
     ? 'Service Worker'

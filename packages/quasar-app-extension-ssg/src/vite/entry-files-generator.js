@@ -1,15 +1,14 @@
-const { resolve, join, basename } = require('path');
-const {
+import { resolve, join, basename } from "path";
+import {
   existsSync,
   mkdirSync,
   readFileSync,
   writeFileSync,
   lstatSync,
-} = require('fs');
-const { removeSync } = require('fs-extra');
-const compileTemplate = require('lodash/template');
-const appPaths = require('@quasar/app-vite/lib/app-paths');
-
+} from "fs";
+import { removeSync } from "fs-extra";
+import compileTemplate from "lodash/template.js";
+import appPaths from "@quasar/app-vite/lib/app-paths";
 const quasarFolder = appPaths.resolve.app('.quasar');
 
 class EntryFilesGenerator {
@@ -55,4 +54,4 @@ class EntryFilesGenerator {
   }
 }
 
-module.exports = () => new EntryFilesGenerator();
+export default () => new EntryFilesGenerator();

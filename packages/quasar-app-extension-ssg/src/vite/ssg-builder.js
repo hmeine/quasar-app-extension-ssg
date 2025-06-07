@@ -1,12 +1,12 @@
-const { join } = require('path');
-const { writeFileSync } = require('fs');
-const AppBuilder = require('@quasar/app-vite/lib/app-builder');
-const {
+import { join } from "path";
+import { writeFileSync } from "fs";
+import AppBuilder from "@quasar/app-vite/lib/app-builder.js";
+import {
   getProdSsrTemplateFn,
   transformProdSsrPwaOfflineHtml: transformProdSsgFallbackHtml,
-} = require('@quasar/app-vite/lib/helpers/html-template');
-const config = require('./ssg-config');
-const PagesGenerator = require('./PagesGenerator');
+} from "@quasar/app-vite/lib/helpers/html-template";
+import config from "./ssg-config.js";
+import PagesGenerator from "./PagesGenerator.js";
 
 class SsgBuilder extends AppBuilder {
   quasarConf;
@@ -125,4 +125,4 @@ class SsgBuilder extends AppBuilder {
   }
 }
 
-module.exports = SsgBuilder;
+export default SsgBuilder;

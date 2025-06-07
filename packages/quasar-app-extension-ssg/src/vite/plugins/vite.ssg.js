@@ -1,8 +1,8 @@
-const { join, relative } = require('path');
-const MagicString = require('magic-string');
-const { normalizePath } = require('vite');
-const getHash = require('../helpers/get-hash');
-const parseViteRequest = require('../helpers/parse-vite-request');
+import { join, relative } from "path";
+import MagicString from "magic-string";
+import { normalizePath } from "vite";
+import getHash from "../helpers/get-hash.js";
+import parseViteRequest from "../helpers/parse-vite-request.js";
 
 /**
  * In production at server-side,
@@ -238,7 +238,7 @@ function getAutoImportSvgIconsPlugin(iconSet) {
   });
 }
 
-module.exports.plugin = function QuasarSSGVitePlugin(quasarConf, runMode) {
+export function QuasarSSGVitePlugin(quasarConf, runMode) {
   const plugins = [
     getRobotoFontPlugin(quasarConf.ssg.robotoFontDisplay),
   ];

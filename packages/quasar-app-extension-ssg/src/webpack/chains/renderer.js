@@ -1,15 +1,14 @@
-const {
+import {
   join, sep, normalize,
-} = require('path');
-const { existsSync } = require('fs');
-const webpack = require('webpack');
-const WebpackChain = require('webpack-chain');
-const nodeExternals = require('webpack-node-externals');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const injectNodeTypescript = require('@quasar/app-webpack/lib/webpack/inject.node-typescript');
-const WebpackProgressPlugin = require('../plugins/progress');
-const RenderTemplatePlugin = require('../plugins/render-template');
-
+} from "path";
+import { existsSync } from "fs";
+import webpack from "webpack";
+import WebpackChain from "webpack-chain";
+import nodeExternals from "webpack-node-externals";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import injectNodeTypescript from "@quasar/app-webpack/lib/webpack/inject.node-typescript.js";
+import WebpackProgressPlugin from "../plugins/progress.js";
+import RenderTemplatePlugin from "../plugins/render-template.js";
 const nodeEnvBanner = 'process.env.NODE_ENV=\'development\';';
 
 const flattenObject = (obj, prefix = 'process.env') => Object.keys(obj)
@@ -43,7 +42,8 @@ function getModuleDirs() {
 
 const additionalModuleDirs = getModuleDirs();
 
-module.exports = function createRendererChain(cfg, configName) {
+
+export default function createRendererChain(cfg, configName) {
   const chain = new WebpackChain();
 
   const resolveModules = [

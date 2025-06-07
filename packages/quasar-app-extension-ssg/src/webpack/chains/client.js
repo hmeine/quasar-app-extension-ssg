@@ -1,9 +1,9 @@
-const { join } = require('path');
-const createChain = require('@quasar/app-webpack/lib/webpack/create-chain');
-const { QuasarSSRClientPlugin } = require('../plugins/client-side');
-const WebpackProgressPlugin = require('../plugins/progress');
+import { join } from "path";
+import createChain from "@quasar/app-webpack/lib/webpack/create-chain.js";
+import { QuasarSSRClientPlugin } from "../plugins/client-side.js";
+import WebpackProgressPlugin from "../plugins/progress.js";
 
-module.exports = function createClientChain(cfg, configName) {
+export default function createClientChain(cfg, configName) {
   const chain = createChain(cfg, configName);
 
   chain.name(configName);

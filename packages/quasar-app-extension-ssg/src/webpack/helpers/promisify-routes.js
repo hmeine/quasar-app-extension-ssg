@@ -1,4 +1,4 @@
-module.exports = function promisifyRoutes(fn, ...args) {
+export default function promisifyRoutes(fn, ...args) {
   // If routes is an array
   if (Array.isArray(fn)) {
     return Promise.resolve(fn);

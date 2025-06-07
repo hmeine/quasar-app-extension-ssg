@@ -1,14 +1,14 @@
-const { posix, resolve } = require('path');
-const { existsSync } = require('fs');
-const { readFile, writeFile } = require('fs/promises');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const { log } = require('./logger');
-const { makeSnapshot, compareSnapshots } = require('./snapshot');
-const {
+import { posix, resolve } from "path";
+import { existsSync } from "fs";
+import { readFile, writeFile } from "fs/promises";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import { log } from "./logger.js";
+import { makeSnapshot, compareSnapshots } from "./snapshot.js";
+import {
   quasarVersion, cliAppVersion, ssgVersion, quasarExtrasVersion,
-} = require('./banner');
+} from "./banner.js";
 
-module.exports = async function ensureBuild(quasarConfFile) {
+export default async function ensureBuild(quasarConfFile) {
   const { quasarConf } = quasarConfFile;
   const options = quasarConf.ssg;
 

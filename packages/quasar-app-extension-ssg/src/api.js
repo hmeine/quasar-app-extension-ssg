@@ -1,4 +1,4 @@
-const semver = require('semver');
+import semver from "semver";
 
 const viteDeps = {
   current: [],
@@ -37,7 +37,7 @@ function getPackageJson(pkgName) {
   }
 }
 
-module.exports.getPackageVersion = function getPackageVersion(pkgName) {
+export function getPackageVersion(pkgName) {
   const json = getPackageJson(pkgName);
 
   return json !== void 0
@@ -45,7 +45,7 @@ module.exports.getPackageVersion = function getPackageVersion(pkgName) {
     : void 0;
 };
 
-module.exports.hasPackage = function hasPackage(pkgName, semverCondition) {
+export function hasPackage(pkgName, semverCondition) {
   const json = getPackageJson(pkgName);
 
   if (json === void 0) {
@@ -57,8 +57,8 @@ module.exports.hasPackage = function hasPackage(pkgName, semverCondition) {
     : true;
 };
 
-module.exports.hasVite = this.hasPackage('@quasar/app-vite');
+export const hasVite = this.hasPackage('@quasar/app-vite');
 
-module.exports.engine = `@quasar/app-${this.hasVite ? 'vite' : 'webpack'}`;
+export const engine = `@quasar/app-${this.hasVite ? 'vite' : 'webpack'}`;
 
-module.exports.ssgDeps = this.hasVite ? viteDeps : webpackDeps;
+export const ssgDeps = this.hasVite ? viteDeps : webpackDeps;

@@ -4,4 +4,4 @@ const flatRoutes = function flatRoutes(routes) {
     .map((r) => r.path);
 };
 
-module.exports = flatRoutes;
+export default flatRoutes;

@@ -1,6 +1,6 @@
-const { extname } = require('path');
+import { extname } from "path";
 
-module.exports = function isRouteValid(route) {
+export default function isRouteValid(route) {
   if (route.startsWith('/') && !route.startsWith('//') && !extname(route)) {
     return true;
   }

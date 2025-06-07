@@ -1,6 +1,5 @@
-const parseArgs = require('minimist');
-const { engine } = require('../api');
-
+import parseArgs from "minimist";
+import { engine } from "../api.js";
 const argv = parseArgs(process.argv.slice(4), {
   alias: {
     p: 'port',

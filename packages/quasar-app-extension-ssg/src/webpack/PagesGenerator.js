@@ -1,24 +1,24 @@
-const { join, dirname } = require('path');
-const {
+import { join, dirname } from "path";
+import {
   cyanBright,
   green,
   bold,
   blue,
   yellow,
   red,
-} = require('chalk');
-const { parse: parseHtml } = require('node-html-parser');
-const appPaths = require('@quasar/app-webpack/lib/app-paths');
-const { log, beastcssLog, warning } = require('./helpers/logger');
-const promisifyRoutes = require('./helpers/promisify-routes');
-const isRouteValid = require('./helpers/is-route-valid');
-const {
+} from "chalk";
+import { parse: parseHtml } from "node-html-parser";
+import appPaths from "@quasar/app-webpack/lib/app-paths.js";
+import { log, beastcssLog, warning } from "./helpers/logger.js";
+import promisifyRoutes from "./helpers/promisify-routes.js";
+import isRouteValid from "./helpers/is-route-valid.js";
+import {
   withTrailingSlash,
   withoutTrailingSlash,
-} = require('./helpers/normalize-slash');
-const { hasPackage } = require('../api');
+} from "./helpers/normalize-slash.js";
+import { hasPackage } from "../api.js";
 
-module.exports = class PagesGenerator {
+export default class PagesGenerator {
   constructor(quasarConf, renderToString, fs) {
     this.init(quasarConf, renderToString, fs);
   }

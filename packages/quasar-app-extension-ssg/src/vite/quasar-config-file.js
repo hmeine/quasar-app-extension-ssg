@@ -1,8 +1,8 @@
-const { join, isAbsolute } = require('path');
-const { merge } = require('webpack-merge');
-const appPaths = require('@quasar/app-vite/lib/app-paths');
-const QuasarConfFile = require('@quasar/app-vite/lib/quasar-config-file');
-const { hasPackage } = require('../api');
+import { join, isAbsolute } from "path";
+import { merge } from "webpack-merge";
+import appPaths from "@quasar/app-vite/lib/app-paths";
+import QuasarConfFile from "@quasar/app-vite/lib/quasar-config-file.js";
+import { hasPackage } from "../api.js";
 
 function getUniqueArray(original) {
   return Array.from(new Set(original));
@@ -86,7 +86,7 @@ function extendQuasarConf(conf) {
   conf.ssr.ssrPwaHtmlFilename = conf.ssg.fallback;
 }
 
-module.exports = class ExtendedQuasarConfFile extends QuasarConfFile {
+class ExtendedQuasarConfFile extends QuasarConfFile {
   #ctx;
 
   constructor({
@@ -140,3 +140,5 @@ module.exports = class ExtendedQuasarConfFile extends QuasarConfFile {
     return cfg;
   }
 };
+
+export default ExtendedQuasarConfFile;

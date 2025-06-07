@@ -2,8 +2,8 @@
  * Forked from vue-server-renderer/client-plugin.js v2.6.14 NPM package
  */
 
-const hash = require('hash-sum');
-const { sources } = require('webpack');
+import hash from "hash-sum";
+import { sources } from "webpack";
 
 const jsCssRE = /\.(js|css)(\?[^.]+)?$/;
 const swRE = /\|\w+$/;
@@ -72,9 +72,7 @@ function getClientManifest(compilation) {
   return manifest;
 }
 
-module.exports.getClientManifest = getClientManifest;
-
-module.exports.QuasarSSRClientPlugin = class QuasarSSRClientPlugin {
+class QuasarSSRClientPlugin {
   constructor(cfg = {}) {
     this.cfg = cfg;
   }
@@ -108,3 +106,5 @@ module.exports.QuasarSSRClientPlugin = class QuasarSSRClientPlugin {
     });
   }
 };
+
+export { getClientManifest, QuasarSSRClientPlugin };
