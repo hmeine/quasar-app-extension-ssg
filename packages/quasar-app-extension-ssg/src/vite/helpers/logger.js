@@ -1,15 +1,10 @@
 import {
   cyan, yellow, bgYellow, black,
 } from "kolorist";
-import logger from "@quasar/app-vite/lib/helpers/logger";
+import logger from "@quasar/app-vite/cli/lib/logger";
 
-export { logger.dot };
-export { logger.clearConsole };
-export { logger.log };
-export { logger.fatal };
-export { logger.info };
-export { logger.warning };
-export { logger.progress };
+export { dot, clearConsole, log, fatal, info, warning, progress } from "@quasar/app-vite/cli/lib/logger";
+
 /**
  * Pills
  */
