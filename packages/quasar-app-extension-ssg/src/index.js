@@ -17,18 +17,18 @@ export default function run(api) {
   const basePath = `./${api.hasVite ? 'vite' : 'webpack'}/cmd/`;
 
   api.registerCommand('generate', () => {
-    require(`${basePath}generate`);
+    import(`${basePath}generate.js`);
   });
 
   api.registerCommand('dev', () => {
-    require(`${basePath}dev`);
+    import(`${basePath}dev.js`);
   });
 
   api.registerCommand('inspect', () => {
-    require(`${basePath}inspect`);
+    import(`${basePath}inspect.js`);
   });
 
   api.registerCommand('serve', () => {
-    require('./cmd/serve');
+    import('./cmd/serve.js');
   });
 };
